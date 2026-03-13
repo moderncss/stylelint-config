@@ -1,0 +1,36 @@
+{
+  "name": "stylelint-config-modern",
+  "version": "0.1.0",
+  "description": "Modern CSS shareable config for Stylelint",
+  "keywords": [
+    "modern",
+    "stylelint",
+    "stylelint-config"
+  ],
+  "license": "MIT",
+  "author": "Richard Hallows",
+  "repository": "moderncss/stylelint-config",
+  "files": [
+    "index.js"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "format": "oxfmt .",
+    "check": "bun run --sequential 'check:*'",
+    "check:format": "oxfmt . --check",
+    "check:lint": "oxlint",
+    "test": "bun test",
+    "watch": "bun test --watch"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.51.0",
+    "stylelint": "^17.4.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}
