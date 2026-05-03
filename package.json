@@ -30,6 +30,9 @@
     "oxlint": "^1.62.0",
     "stylelint": "^17.10.0"
   },
+  "peerDependencies": {
+    "stylelint": "^17.10.0"
+  },
   "engines": {
     "node": ">=20.19.0"
   }
