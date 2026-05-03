@@ -39,16 +39,25 @@ describe("flags warnings with invalid css", () => {
     expect(result.errored).toBe(true);
   });
 
-  it("flags one warning", () => {
-    expect(result.results[0].warnings.length).toBe(1);
+  it("flags two warnings", () => {
+    expect(result.results[0].warnings.length).toBe(2);
   });
 
-  it("flags the correct warning", () => {
-    const [warning] = result.results[0].warnings;
+  it("flags the display-notation warning", () => {
+    const warning = result.results[0].warnings.find((w) => w.rule === "display-notation");
     expect(warning.text).toBe('Expected "block" to be "block flow" (display-notation)');
-    expect(warning.rule).toBe("display-notation");
     expect(warning.severity).toBe("error");
     expect(warning.line).toBe(2);
     expect(warning.column).toBe(12);
+  });
+
+  it("flags the property-layout-mappings warning", () => {
+    const warning = result.results[0].warnings.find((w) => w.rule === "property-layout-mappings");
+    expect(warning.text).toBe(
+      'Expected "margin-left" to be "margin-inline-start" (property-layout-mappings)',
+    );
+    expect(warning.severity).toBe("error");
+    expect(warning.line).toBe(3);
+    expect(warning.column).toBe(3);
   });
 });
