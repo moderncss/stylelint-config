@@ -19,16 +19,17 @@
   },
   "scripts": {
     "format": "oxfmt .",
-    "check": "bun run --sequential 'check:*'",
+    "check": "run-s check:*",
     "check:format": "oxfmt . --check",
     "check:lint": "oxlint",
-    "test": "bun test",
-    "watch": "bun test --watch"
+    "test": "node --test",
+    "watch": "node --test --watch"
   },
   "devDependencies": {
-    "oxfmt": "^0.36.0",
-    "oxlint": "^1.62.0",
-    "stylelint": "^17.10.0"
+    "npm-run-all2": "^9.0.3",
+    "oxfmt": "^0.63.0",
+    "oxlint": "^1.78.0",
+    "stylelint": "^17.14.1"
   },
   "peerDependencies": {
     "stylelint": "^17.10.0"

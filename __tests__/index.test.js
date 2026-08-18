@@ -1,4 +1,6 @@
-import { beforeAll, describe, expect, it } from "bun:test";
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import { before, describe, it } from "node:test";
 
 import stylelint from "stylelint";
 
@@ -7,8 +9,8 @@ import config from "../index.js";
 describe("flags no warnings with valid css", () => {
   let result;
 
-  beforeAll(async () => {
-    const validCss = await Bun.file("./__tests__/valid.css").text();
+  before(async () => {
+    const validCss = await readFile("./__tests__/valid.css", "utf8");
     result = await stylelint.lint({
       code: validCss,
       config,
@@ -16,19 +18,19 @@ describe("flags no warnings with valid css", () => {
   });
 
   it("has no errors", () => {
-    expect(result.errored).toBe(false);
+    assert.equal(result.errored, false);
   });
 
   it("flags no warnings", () => {
-    expect(result.results[0].warnings.length).toBe(0);
+    assert.equal(result.results[0].warnings.length, 0);
   });
 });
 
 describe("flags warnings with invalid css", () => {
   let result;
 
-  beforeAll(async () => {
-    const invalidCss = await Bun.file("./__tests__/invalid.css").text();
+  before(async () => {
+    const invalidCss = await readFile("./__tests__/invalid.css", "utf8");
     result = await stylelint.lint({
       code: invalidCss,
       config,
@@ -36,28 +38,29 @@ describe("flags warnings with invalid css", () => {
   });
 
   it("includes an error", () => {
-    expect(result.errored).toBe(true);
+    assert.equal(result.errored, true);
   });
 
   it("flags two warnings", () => {
-    expect(result.results[0].warnings.length).toBe(2);
+    assert.equal(result.results[0].warnings.length, 2);
   });
 
   it("flags the display-notation warning", () => {
     const warning = result.results[0].warnings.find((w) => w.rule === "display-notation");
-    expect(warning.text).toBe('Expected "block" to be "block flow" (display-notation)');
-    expect(warning.severity).toBe("error");
-    expect(warning.line).toBe(2);
-    expect(warning.column).toBe(12);
+    assert.equal(warning.text, 'Expected "block" to be "block flow" (display-notation)');
+    assert.equal(warning.severity, "error");
+    assert.equal(warning.line, 2);
+    assert.equal(warning.column, 12);
   });
 
   it("flags the property-layout-mappings warning", () => {
     const warning = result.results[0].warnings.find((w) => w.rule === "property-layout-mappings");
-    expect(warning.text).toBe(
+    assert.equal(
+      warning.text,
       'Expected "margin-left" to be "margin-inline-start" (property-layout-mappings)',
     );
-    expect(warning.severity).toBe("error");
-    expect(warning.line).toBe(3);
-    expect(warning.column).toBe(3);
+    assert.equal(warning.severity, "error");
+    assert.equal(warning.line, 3);
+    assert.equal(warning.column, 3);
   });
 });
