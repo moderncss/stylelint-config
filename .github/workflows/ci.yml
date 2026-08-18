@@ -9,10 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v7
         with:
-          bun-version: latest
+          node-version: lts/*
+          cache: npm
 
-      - run: bun install
-      - run: bun run check
-      - run: bun test
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
