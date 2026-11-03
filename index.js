@@ -30,7 +30,7 @@ export default {
     "unit-layout-mappings": "flow-relative",
     "value-keyword-layout-mappings": [
       "flow-relative",
-      { ignoreKeywords: ["caption-side", "offset-anchor", "offset-position"] },
+      { ignoreProperties: ["offset-anchor", "offset-position"] },
     ],
   },
 };

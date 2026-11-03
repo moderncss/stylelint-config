@@ -1,5 +1,6 @@
 a {
   display: block flow;
+  offset-anchor: left top;
 
   b {
     margin-inline-start: 1rem;
