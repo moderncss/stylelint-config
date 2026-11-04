@@ -11,7 +11,8 @@
   "author": "Richard Hallows",
   "repository": "moderncss/stylelint-config",
   "files": [
-    "index.js"
+    "index.js",
+    "CHANGELOG.md"
   ],
   "type": "module",
   "exports": {

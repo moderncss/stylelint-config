@@ -1,6 +1,6 @@
 # stylelint-config-modern
 
-[![NPM version](https://img.shields.io/npm/v/stylelint-config-modern.svg)](https://www.npmjs.org/package/stylelint-config-modern) [![Build Status](https://github.com/moderncss/stylelint-config/workflows/CI/badge.svg)](https://github.com/moderncss/stylelint-config/actions)
+[![NPM version](https://img.shields.io/npm/v/stylelint-config-modern.svg)](https://www.npmjs.org/package/stylelint-config-modern) [![Build Status](https://github.com/moderncss/stylelint-config/actions/workflows/ci.yml/badge.svg)](https://github.com/moderncss/stylelint-config/actions)
 
 > The modern CSS shareable config for Stylelint.
 
