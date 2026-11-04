@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "npm-run-all2": "^9.0.3",
-    "oxfmt": "^0.63.0",
+    "oxfmt": "^0.75.0",
     "oxlint": "^1.78.0",
     "stylelint": "^18.0.0"
   },
