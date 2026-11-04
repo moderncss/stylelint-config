@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+
+- Added: `CHANGELOG.md` to the package.
+
 ## 2.0.0
 
 - Removed: `stylelint` less than `18.0.0` from peer dependencies.
